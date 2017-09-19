@@ -1,0 +1,57 @@
+buildscript {
+    repositories {
+        repositories {
+            maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
+            maven { url 'http://repo1.maven.org/maven2/' }
+            mavenCentral()
+            jcenter()
+        }
+    }
+
+    ext {
+        springBootVersion = '1.5.3.RELEASE'
+    }
+
+    dependencies {
+
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath 'org.akhikhl.gretty:gretty:+'
+        classpath 'com.bmuschko:gradle-nexus-plugin:+'
+        classpath 'com.github.ben-manes:gradle-versions-plugin:+'
+
+        classpath 'com.bmuschko:gradle-docker-plugin:2.5.1'
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.2.5.RELEASE'
+    }
+}
+allprojects {
+
+//    apply from: "${rootDir}/gradle/dependencies.gradle"
+
+    group 'cn.com.yxb.project-shiro'
+    version '1.0-SNAPSHOT'
+
+    apply plugin: 'java'
+
+    apply plugin: "checkstyle"
+
+
+    ext {
+        defaultEncoding = 'UTF-8'
+        defaultLocale = 'en_US'
+
+        gradleScriptDir = "${rootDir}/gradle"
+    }
+
+    repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
+        maven { url 'http://repo1.maven.org/maven2/' }
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        compile('org.springframework.boot:spring-boot-starter:1.5.3.RELEASE')
+        compile('org.springframework.boot:spring-boot-starter-web:1.5.3.RELEASE')
+
+    }
+}

@@ -1,0 +1,5 @@
+rootProject.name = 'project-shiro'
+
+include 'shiro-demo'
+include 'shiro-jdbc-real'
+
